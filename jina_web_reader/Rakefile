@@ -1,0 +1,20 @@
+require 'awesome_print'
+
+task default: [:build]
+
+task :build  do |t|
+  require 'json'
+  output = { "code" => "" }
+
+  Dir.glob("#{__dir__}/json/*.json").each do |config|
+    output.merge!(JSON.parse File.read config)
+  end
+
+  Dir.glob("#{__dir__}/code/*.js").each do |js|
+    output['code'] += File.read(js)
+  end
+
+  File.write(output["id"]+".json", JSON.pretty_generate(output))
+
+end
+
