@@ -1,12 +1,16 @@
 
-This repository is a collection of TypingMind plugins written by yours
-truly.  
+
+## Overview
+
+This javascript is a Typingmind plugin for the Jina.AI web reader.   With this
+plugin, the user can retrieve the contents of the provided URL via r.jina.ai.
+
+## Installation
 
 
-# jina\_web\_reader
+## Usage
 
-This plugin uses Jina.AI to fetch webpages off of the internet and feed
-them into your LLM
-
+In your prompt, say something along the lines of "use jina to fetch the
+page at https://slashdot.org"
 
 
