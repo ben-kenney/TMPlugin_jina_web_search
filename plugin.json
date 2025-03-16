@@ -33,6 +33,7 @@
     },
     "description": "Fetch the entire content of a web page Jina.ai's web reader with options for images"
   },
+    {
     "name": "jina_web_search",
     "parameters": {
       "type": "object",
