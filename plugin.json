@@ -42,14 +42,14 @@
       "description": "Your API key for accessing Jina.ai services"
     },
     {
-      "name": "Geographic location",
+      "name": "gl",
       "type": "string",
       "label": "Two-letter country code (ex. US, CA, UK)",
       "required": true,
       "description": "The country that the web search should be made from."
     },
     {
-      "name": "Location",
+      "name": "location",
       "type": "string",
       "label": "City name, location from which web search should be made from.",
       "required": true,
