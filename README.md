@@ -1,12 +1,11 @@
 
 ## Overview
 
-This TypingMind Plugin uses the Jina.AI web reader to fetch webpages for your
-LLM.  
+This TypingMind Plugin uses the Jina.AI web search to fetch webpages for your LLM.  
 
 ## Usage
 
-Simply ask the  LLM to  "fetch url [SOMEURL] via the Jina plugin"
+Simply ask the  LLM to  "search for [some search term] via the Jina plugin"
 
 
 ## Installation
@@ -16,8 +15,12 @@ Simply ask the  LLM to  "fetch url [SOMEURL] via the Jina plugin"
 
 
 2. Enter the repository url:
-   https://github.com/jdblack/typingmind_jina_web_reader
+   https://github.com/ben-kenney/TMPlugin_jina_web_search
 
 3. Go to Jina.AI and make an API key. At the time of this writing, the first
-   300k tokens are free, and thereafter $20 per billion.
+   1M tokens are free, and thereafter $20 per billion.
+
+## Acknowledgments
+
+This plugin is a replica of https://github.com/jdblack/typingmind_jina_web_reader but it adds the Jina.AI search endpoint.
 
