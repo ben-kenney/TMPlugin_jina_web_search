@@ -5,7 +5,7 @@ async function jina_web_reader(params, userSettings) {
   if (!url) {
     throw new Error('URL is required');
   }
-
+  
   try {
     const response = await fetch(`https://r.jina.ai/${encodeURIComponent(url)}`, {
       method: 'GET',
@@ -40,20 +40,21 @@ async function jina_web_reader(params, userSettings) {
 
 async function jina_web_search(params, userSettings) {
   const { search_term, includeImages = false, importToChat = true } = params;
-  const { jinaApiKey } = userSettings;
+  const { jinaApiKey, gl, location } = userSettings;
 
   if (!search_term) {
     throw new Error('A search term is required');
   }
 
   try {
-    const response = await fetch(`https://s.jina.ai/?q=${encodeURIComponent(search_term)}`, {
+    const response = await fetch(`https://s.jina.ai/?q=${encodeURIComponent(search_term)}&gl=${gl}&location=${location}`, {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
         'Authorization': `Bearer ${jinaApiKey}`,
-        'X-Engine': 'direct',
-        'X-Retain-Images': 'none'
+        //'X-Engine': 'direct',
+        'X-Retain-Images': 'none',
+        'X-With-Links-Summary': 'true',
       }
     });
 
