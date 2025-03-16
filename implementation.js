@@ -50,23 +50,23 @@ async function jina_web_search(params, userSettings) {
     const response = await fetch(`https://s.jina.ai/?q=${encodeURIComponent(search_term)}`, {
       method: 'GET',
       headers: {
-        'Accept: application/json',
+        'Accept': 'application/json',
         'Authorization': `Bearer ${jinaApiKey}`,
-        'X-Engine: direct',
-        'X-Retain-Images': none'
+        'X-Engine': 'direct',
+        'X-Retain-Images': 'none'
       }
     });
 
     if (!response.ok) {
-      throw new Error(`Failed to get search results: ${response.statusText}` );
+      throw new Error(`Failed to get search results: ${response.statusText}`);
     }
 
     const contentType = response.headers.get('content-type');
 
     let content;
-    if (contentType.includes('application/json')) {
+    if (contentType && contentType.includes('application/json')) {
       content = await response.json();
-    } else if (contentType.includes('text/html') || contentType.includes('text/plain')) {
+    } else if (contentType && (contentType.includes('text/html') || contentType.includes('text/plain'))) {
       content = await response.text();
     } else {
       content = await response.blob();  // Handle binary data types or other formats
