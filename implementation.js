@@ -46,8 +46,18 @@ async function jina_web_search(params, userSettings) {
     throw new Error('A search term is required');
   }
 
+  // Construct the URL based on whether gl and location are set
+  let url = `https://s.jina.ai/?q=${encodeURIComponent(search_term)}`;
+  if (gl && location) {
+    url += `&gl=${gl}&location=${location}`;
+  } else if (location) {
+    url += `&location=${location}`;
+  } else if (gl) {
+    url += `&gl=${gl}`;
+  }
+  console.log(`Fetching ${url}`);
   try {
-    const response = await fetch(`https://s.jina.ai/?q=${encodeURIComponent(search_term)}&gl=${gl}&location=${location}`, {
+    const response = await fetch(url, {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
