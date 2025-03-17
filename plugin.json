@@ -45,14 +45,14 @@
       "name": "gl",
       "type": "text",
       "label": "Two-letter country code (ex. US, CA, UK)",
-      "required": true,
+      "required": false,
       "description": "The country that the web search should be made from."
     },
     {
       "name": "location",
       "type": "text",
       "label": "City name, location from which web search should be made from.",
-      "required": true,
+      "required": false,
       "description": "The location from which web search should be made from."
     }
   ]
